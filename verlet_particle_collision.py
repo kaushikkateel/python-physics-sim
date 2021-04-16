@@ -29,7 +29,12 @@ class point():
 def distance(a,b,c,d):
     return math.sqrt((a-b)**2 + (c-d)**2)
 
+def random_color():
+    return list(np.random.choice(range(256), size=3))
+
+
 def resolve_collision(point1, point2):
+
     x1 = point1.x
     y1 = point1.y
     x2 = point2.x
@@ -74,7 +79,7 @@ def resolve_collision(point1, point2):
 
 
 def collision_detect(point1, point2):
-    print(point1.y, point2.y)
+    print(point1.x, point1.y, point2.x, point2.y)
     dist = distance(point2.x, point1.x, point2.y, point1.y)
     print(dist)
     if dist <= 20 :
@@ -125,10 +130,10 @@ def draw_points(points):
 
 
 points = []
-points.append(point(100,100,5,list(np.random.choice(range(256), size=3))))
-points.append(point(150,150,2,list(np.random.choice(range(256), size=3))))
-points.append(point(200,200,7,list(np.random.choice(range(256), size=3))))
-points.append(point(250,250,9,list(np.random.choice(range(256), size=3))))
+points.append(point(100,100,5,random_color()))
+points.append(point(150,150,2,random_color()))
+points.append(point(200,200,7,random_color()))
+points.append(point(250,250,9,random_color()))
 
 while gameRun:
 
