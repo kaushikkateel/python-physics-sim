@@ -1,4 +1,5 @@
 import pygame, sys, random, math
+import numpy as np
 from pygame import mixer
 
 pygame.init()
@@ -18,11 +19,11 @@ pop_sound.set_volume(0.1)
 
 
 class point():
-    def __init__(self, x, y, initial_velocity,color):
+    def __init__(self, x, y, initial_velocity, color):
         self.x = x
         self.y = y
-        self.oldx = x-initial_velocity
-        self.oldy = y-initial_velocity
+        self.oldx = x - initial_velocity
+        self.oldy = y - initial_velocity
         self.color = color
 
 def distance(a,b,c,d):
@@ -124,10 +125,10 @@ def draw_points(points):
 
 
 points = []
-points.append(point(100,100,5,(255,255,255)))
-points.append(point(150,150,2,(255,255,255)))
-points.append(point(200,200,7,(255,255,255)))
-points.append(point(250,250,9,(255,255,0)))
+points.append(point(100,100,5,list(np.random.choice(range(256), size=3))))
+points.append(point(150,150,2,list(np.random.choice(range(256), size=3))))
+points.append(point(200,200,7,list(np.random.choice(range(256), size=3))))
+points.append(point(250,250,9,list(np.random.choice(range(256), size=3))))
 
 while gameRun:
 
